@@ -15,19 +15,19 @@ require_once 'model/animal.php';
         {
             $animal = new Animal();
             if(isset($_REQUEST['id'])){
-                $animal=$animal->model->getById($_REQUEST['id']);
+                $animal=$this->model->getById($_REQUEST['id']);
             }
             require_once 'view/animal_form.php';
         }
             //Datos del formulario
     public function save()
     {
-        $animal = new Animal();
+        $animal=new Animal();
         $animal->id=$_REQUEST['id'];
         $animal->name=$_REQUEST['name'];
         $animal->specie=$_REQUEST['specie'];
         $animal->breed=$_REQUEST['breed'];
-        $animal->gener=$_REQUEST['gender'];
+        $animal->gender=$_REQUEST['gender'];
         $animal->color=$_REQUEST['color'];
         $animal->age=$_REQUEST['age'];
         //Si el id> 0 ---> Datos a modificar, por lo tanto modificamos
@@ -38,7 +38,7 @@ require_once 'model/animal.php';
 
     public function quit() //borrar un dato
     {
-        $this->model-> detete($_REQUEST['id']);
+        $this->model-> delete($_REQUEST['id']);
     }
 }
 ?>

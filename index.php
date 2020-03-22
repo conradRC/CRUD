@@ -10,7 +10,7 @@ else{
     require_once 'controller/'.$controller.'_controller.php';
     $controller = ucwords($controller).'Controller'; //convertir a mayuscula la primera letra
     $controller= new $controller;
-    call_use_func(array($controller,$action));
+    call_user_func(array($controller,$action));
 }
   
 ?>

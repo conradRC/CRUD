@@ -20,11 +20,11 @@ require_once 'connection.php';
             }
         }
 
-        public function getID($id){
+        public function getById($id){
             try{
                 $stm=$this->pdo->prepare("SELECT * FROM $this->table WHERE id=?");
                 $stm->execute(array($id));
-                return $stm->fecthAll(PDO::FETCH_OBJ);
+                return $stm->fetch(PDO::FETCH_OBJ);
             }
             catch(PDOException $e){
                 echo $e->getMessage();

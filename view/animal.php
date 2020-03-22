@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
 <body>
+    <a href='index.php?controller=animal&action=showById'>Nuevo</a>
     <table>
         <tr>
         <?php require_once 'core/const.php'; 
@@ -17,16 +18,22 @@
             <?php 
                 endforeach;
             ?>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a href=''>Editar</a></td>
-            <td><a onclick="javascript: return confirm('¿Esta seguro de eliminar el registro?');" href=''>Eliminar</a></td>
-        </tr>
-    </table>
-</body>
+            <td>Genero</td>
+            </tr>
+            <?php foreach($this->model->getAll() as $animal): ?>
+            <tr>
+                <td> <?php echo $animal->name?></td>
+                <td> <?php echo $animal->specie?></td>
+                <td> <?php echo $animal->breed?></td>
+                <td> <?php echo $animal->color?></td>
+                <td> <?php echo $animal->age?></td>
+                <td> <?php echo $animal->gender?></td>
+                <td><a href="index.php?controller=animal&action=showById&id=<?php echo $animal->id; ?>" >Editar</a></td>  
+                <td><a onclick="javascript:return confirm('¿Esta seguro de eliminar el registro?');" href="index.php?controller=animal&action=quit&id=<?php echo $animal->id; ?>">Eliminar</a></td>
+            </tr>
+            <?php 
+                endforeach;
+            ?>
+        </table>
+    </body>
 </html>
