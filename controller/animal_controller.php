@@ -19,7 +19,7 @@ require_once 'model/animal.php';
             }
             require_once 'view/animal_form.php';
         }
-            //Datos del formulario
+           
     public function save()
     {
         $animal=new Animal();
